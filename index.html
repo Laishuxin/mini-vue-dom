@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app" style="color: red; font-size: 20px">
+    你好 {{name}} {{info.students[0].name}}
+    <span class="text" style="color: green">{{info.job}}</span>
+    <p>学习</p>
+  </div>
+  <script src="dist/umd/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          age: 12,
+          name: 'jack',
+          info: {
+            job: 'teacher',
+            students: [
+              {
+                id: 1,
+                name: '小张',
+              },
+              {
+                id: 2,
+                name: '小王',
+              },
+            ],
+          }
+        }
+      },
+    })
+      // console.log(vm)
+  </script>
+</body>
+
+</html>
