@@ -1,5 +1,6 @@
 import { initState } from './state';
 import { compileToRenderFunction } from './compiler';
+import { mountComponent } from './lifecycle/mountComponent'
 
 /**
  * 初始化混入函数。
@@ -19,6 +20,7 @@ function initMixin (Vue) {
   
   Vue.prototype.$mount = function (el) {
     const vm = this;
+    
     const options = vm.$options;
 
     el = typeof el === 'string'
@@ -31,6 +33,8 @@ function initMixin (Vue) {
 
       options.render = compileToRenderFunction(template);
     }
+    
+    mountComponent(vm);
   }
 }
 

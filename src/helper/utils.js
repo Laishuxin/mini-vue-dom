@@ -4,7 +4,7 @@
  * @param {string} key 
  * @param {string} value 
  */
-function addAttr (attrs, key, value) {
+function formatAttr (attrs, key, value) {
   if (!attrs || value === undefined || value === null) return;
   
   if (key === 'style') {
@@ -16,6 +16,6 @@ function addAttr (attrs, key, value) {
 }
 
 export{
-  addAttr,
+  formatAttr as addAttr,
 }
 

@@ -1,4 +1,3 @@
-import { addAttr } from '../helper/utils'
 /*
   <div id="app" style="color: red; font-size: 20px">
     你好 {{name}} {{info.students[0].name}}
@@ -82,10 +81,11 @@ function parseHtmlToAst (html) {
       
       while (!(end = html.match(startTagClose)) && 
         (attrs = html.match(attribute))) {
-
-        addAttr(match.attrs, attrs[1], 
-          attrs[3] || attrs[4] || attrs[5]);
-
+        
+        const attr = {}
+        attr.name = attrs[1];
+        attr.value = attrs[3] || attrs[4] || attrs[5];
+        match.attrs.push(attr);
         advance(attrs[0].length);
       }
 
